@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let record = result?;
         let title = record.get(3).unwrap();
         let api_url = format!(
-            "https://www.googleapis.com/books/v1/volumes?q=intitle:%22{}%22&key=AIzaSyB7iuLsIZWTQOEFoRBdsVLva1dEFdajt3o",
+            "https://www.googleapis.com/books/v1/volumes?q=intitle:%22{}%22&key=API_KEY",
             title.replace(" ", "+")
         );
         let resp = reqwest::get(api_url)
