@@ -3,7 +3,6 @@ use std::io::{stdin, stdout};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut cnt = 0;
     let mut wtr = csv::Writer::from_writer(stdout());
     let mut rdr = csv::ReaderBuilder::new()
         .has_headers(true)
@@ -34,10 +33,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             ).map(|opt| opt.unwrap_or(""))
                 .collect::<Vec<_>>()
         ).expect("Failed to write record");
-        if cnt > 3 {
-            break;
-        }
-        cnt += 1;
     }
     Ok(())
 }
